@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Noto_Sans_KR } from "next/font/google";
 import Sidebar from "@/components/layout/sidebar";
-import BlogCategory from "@/components/layout/blog/blog-category";
+import BlogCategory from "@/features/blog/components/blog-category";
 
 const noto_sans = Noto_Sans_KR({
   weight: ["100", "400", "500", "800"],
@@ -24,7 +24,7 @@ export default function RootLayout({
     <html lang="ko" className="dark">
       <body className={noto_sans.className}>
         <div className="h-full">
-          <div className="flex justify-between">
+          <div className="h-full flex justify-between">
             <Sidebar>
               <div className="px-2 flex-1">
                 <BlogCategory />
