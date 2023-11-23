@@ -26,8 +26,8 @@ export default async function BlogPostPage({ params: { slug } }: Props) {
   const [title, description, date] = getHeaderContent(data[0]);
 
   return (
-    <section className="h-full relative overflow-y-auto">
-      <header className="h-full absolute inset-0">
+    <section className="w-full h-full overflow-y-auto">
+      <header className="w-full h-full relative">
         <div className="flex flex-col items-center absolute left-[50%] translate-x-[-50%] bottom-[30%]">
           <div className="w-72 h-72 bg-white"></div>
           <h1 className="my-3 text-7xl font-bold">{title}</h1>
@@ -36,7 +36,7 @@ export default async function BlogPostPage({ params: { slug } }: Props) {
         </div>
         <ChevronDownCircle className="w-8 h-8 absolute left-[50%] translate-x-[-50%] bottom-10" />
       </header>
-      <article className="px-44 pb-32 relative top-[110%]">
+      <article className="px-10 pb-20 md:px-44 md:pb-32">
         <MarkdownViewer content={data[1]} />
       </article>
     </section>
