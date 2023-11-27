@@ -32,12 +32,9 @@ export default function AccordionCategory({
     <Accordion type="single" collapsible defaultValue={pathnameSet[level]}>
       {categoryNames.map((categoryName) => {
         const child = categories[categoryName];
-        const isMarkdown =
-          typeof child === "string" && child.slice(-3) === ".md";
+        const isPost = child.post && child.post.slice(-3) === ".md";
 
-        if (!isMarkdown && Object.keys(child).length === 0) return;
-
-        if (isMarkdown) {
+        if (isPost) {
           return (
             <Link
               key={`${categoryName}${path && `-${path}`}`}

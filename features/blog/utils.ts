@@ -10,7 +10,7 @@ type BlogPostStructureTYpe = {
 export function getBlogStructure(param?: BlogPostStructureTYpe) {
   const rootPath = param
     ? param.nextPath
-    : path.join(process.cwd(), "features", "blog", "post");
+    : path.join(process.cwd(), "public", "blog-post");
   const files = readdirSync(rootPath, { withFileTypes: true });
   const fileStructure: Record<string, any> = param ? param.structure : {};
 
@@ -38,14 +38,20 @@ export function getBlogStructure(param?: BlogPostStructureTYpe) {
   return fileStructure;
 }
 
+export async function getThumbnailPath(
+  pathSet: string[],
+  extension: string = ".jpg"
+): Promise<string> {
+  return `/blog-post/${pathSet.join("/")}/thumbnail${extension}`;
+}
+
 export async function getPostMarkdown(pathSet: string[]): Promise<any> {
   const filePath = path.join(
     process.cwd(),
-    "features",
-    "blog",
-    "post",
-    ...pathSet.slice(0, -1),
-    `${pathSet[pathSet.length - 1]}.md`
+    "public",
+    "blog-post",
+    ...pathSet,
+    "post.md"
   );
   const content = await readFile(filePath, "utf-8");
   return content;
