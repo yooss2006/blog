@@ -18,6 +18,19 @@ body,
   margin: -1px;
 }
 
+a {
+  word-break: break-all;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none; /* IE and 엣지 */
+  scrollbar-width: none; /* 파이어폭스 */
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;

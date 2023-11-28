@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Noto_Sans_KR } from "next/font/google";
 import Sidebar from "@/components/layout/sidebar";
-import BlogCategory from "@/features/blog/components/blog-category";
 import { cn } from "@/lib/utils";
 
 const noto_sans = Noto_Sans_KR({

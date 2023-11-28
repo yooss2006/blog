@@ -1,6 +1,8 @@
 > title: "every"
 > description: "배열을 순회하며 콜백 함수의 결과가 모두 true라면 true를 반환하는 함수"
 > date: "2023-11-27"
+> prev: "null"
+> next: "/blog/javascript/some"
 
 ---
 

@@ -18,7 +18,7 @@ export default async function PostHeader({
 }: Props) {
   const thumbnailPath = await getThumbnailPath(slug);
   return (
-    <header className="w-full h-full flex flex-col justify-center items-center relative">
+    <header className="w-full h-full px-10 flex flex-col justify-center items-center relative">
       <div className="text-center">
         <Image
           width={400}
@@ -28,7 +28,7 @@ export default async function PostHeader({
           alt={`${title} 이미지`}
         />
         <h1 className="pt-4 pb-6 text-7xl font-bold">{title}</h1>
-        <p className="text-xl my-2">{description}</p>
+        <p className="text-xl my-2 break-all">{description}</p>
         <p className="font-light">{date}</p>
       </div>
       <ChevronDownCircle className="w-8 h-8 absolute left-[50%] translate-x-[-50%] bottom-10" />

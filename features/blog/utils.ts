@@ -57,14 +57,26 @@ export async function getPostMarkdown(pathSet: string[]): Promise<any> {
   return content;
 }
 
-export function getHeaderContent(data: string): Array<string> {
-  const regex = /\"(.*?)\"/g;
-  const matchs: Array<string> = [];
+export async function getHeaderContent(
+  pathSet: Array<string>
+): Promise<Record<string, string>> {
+  const data = await getPostMarkdown(pathSet).then(
+    (res) => res.split("---")[0]
+  );
+  const resultObject: Record<string, string> = {};
+
+  const regex = /(\w+):\s*["']?([^"'\n]+)["']?/g;
   let match;
-  while ((match = regex.exec(data))) {
-    if (match[1]) matchs.push(match[1]);
+
+  while ((match = regex.exec(data)) !== null) {
+    const key = match[1] as string;
+    const value = match[2] as string;
+    if (key && value) resultObject[key] = value;
   }
-  if (matchs.length !== 3 && matchs.find((match) => !match))
-    throw new Error("마크다운 파일의 헤더가 잘못되었습니다.");
-  return matchs;
+
+  return resultObject;
+}
+
+export async function getPostContent(pathSet: Array<string>) {
+  return await getPostMarkdown(pathSet).then((res) => res.split("---")[1]);
 }

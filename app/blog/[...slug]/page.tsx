@@ -1,14 +1,9 @@
 import MarkdownViewer from "@/features/blog/components/markdown-viewer";
-import {
-  getHeaderContent,
-  getPostMarkdown,
-  getThumbnailPath,
-} from "@/features/blog/utils";
+import { getHeaderContent, getPostContent } from "@/features/blog/utils";
 import { Metadata } from "next";
 import React from "react";
-import { ChevronDownCircle } from "lucide-react";
-import Image from "next/image";
 import PostHeader from "@/features/blog/components/post-header";
+import ContentNavigationButtons from "@/components/layout/content-navigation-buttons";
 
 type Props = {
   params: {
@@ -19,8 +14,8 @@ type Props = {
 export async function generateMetadata({
   params: { slug },
 }: Props): Promise<Metadata> {
-  const data = await getPostMarkdown(slug).then((res) => res.split("---"));
-  const [title, description] = getHeaderContent(data[0]);
+  const data = await getHeaderContent(slug);
+  const { title, description } = data;
   return {
     title,
     description,
@@ -28,20 +23,21 @@ export async function generateMetadata({
 }
 
 export default async function BlogPostPage({ params: { slug } }: Props) {
-  const data = await getPostMarkdown(slug).then((res) => res.split("---"));
-  const [title, description, date] = getHeaderContent(data[0]);
+  const { title, description, date, prev, next } = await getHeaderContent(slug);
+  const content = await getPostContent(slug);
 
   return (
-    <section className="w-full h-full overflow-y-auto text-slate-800 dark:text-white">
+    <section className="w-full h-full relative overflow-y-auto scrollbar-hide text-slate-800 dark:text-white">
       <PostHeader
         title={title}
         description={description}
         date={date}
         slug={slug}
       />
-      <article className="px-10 pb-20 md:px-44 md:pb-32">
-        <MarkdownViewer content={data[1]} />
+      <article className="px-10 pb-10 md:px-44 md:pb-32">
+        <MarkdownViewer content={content} />
       </article>
+      <ContentNavigationButtons prev={prev} next={next} />
     </section>
   );
 }

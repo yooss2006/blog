@@ -1,6 +1,8 @@
 > title: "테스트"
 > description: "테스트 데이터"
 > date: "2023-11-22"
+> prev: "null"
+> next: "null"
 
 ---
 
