@@ -41,9 +41,9 @@ export default function AccordionCategory({
               href={`${path}/${categoryName}`}
               className={cn(
                 buttonVariants({ variant: "outline" }),
-                "w-full h-14 px-0 py-4 leading-6 flex justify-start gap-2 text-base font-medium bg-transparent",
+                "w-full h-14 px-0 py-4 leading-6 flex justify-start border-none gap-2 text-base font-medium bg-transparent",
                 pathnameSet[level] === categoryName &&
-                  "bg-slate-700 hover:bg-slate-600"
+                  "bg-slate-200 hover:bg-slate-300 dark:bg-slate-700 dark:hover:bg-slate-600"
               )}
               style={{ paddingLeft: dynamicPaddingLeft }}
             >
@@ -56,6 +56,7 @@ export default function AccordionCategory({
           <AccordionItem
             key={`${categoryName}${path && `-${path}`}`}
             value={categoryName}
+            className="border-none"
           >
             <AccordionTrigger
               className="justify-start items-center gap-2"

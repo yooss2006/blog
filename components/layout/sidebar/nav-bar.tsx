@@ -17,7 +17,7 @@ export default function NavBar() {
   const currentPath = `/${pathname.slice(1).split("/")[0]}`;
 
   return (
-    <nav className="w-fit mx-auto mb-4 px-4 py-2 flex justify-center items-center gap-5 rounded-md shadow-md bg-slate-700 text-gray-300">
+    <nav className="w-fit mx-auto mb-4 px-4 py-2 flex justify-center items-center gap-5 rounded-md shadow-md bg-slate-200 dark:bg-slate-700 text-slate-500 dark:text-gray-300">
       {NAV_BUTTON_OPTIONS.map(({ label, icon, path }) => {
         const Icon = icon;
         return (
@@ -26,7 +26,7 @@ export default function NavBar() {
             key={path}
             className={cn(
               "p-2 flex flex-col items-center gap-1",
-              currentPath === path && "text-white"
+              currentPath === path && "text-slate-900 dark:text-white"
             )}
           >
             <Icon className="w-5 h-5" />

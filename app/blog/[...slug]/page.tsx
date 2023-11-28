@@ -32,7 +32,7 @@ export default async function BlogPostPage({ params: { slug } }: Props) {
   const [title, description, date] = getHeaderContent(data[0]);
 
   return (
-    <section className="w-full h-full overflow-y-auto">
+    <section className="w-full h-full overflow-y-auto text-slate-800 dark:text-white">
       <PostHeader
         title={title}
         description={description}
