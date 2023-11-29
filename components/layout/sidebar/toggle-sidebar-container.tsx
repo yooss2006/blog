@@ -11,13 +11,13 @@ export default function ToggleSidebarContainer({ children }: Props) {
   return (
     <div className="bg-slate-100 relative z-10 md:z-0">
       <Sheet>
-        <SheetTrigger className="md:hidden" asChild>
-          <div className="w-full py-2 absolute top-0 left-0 right-0 bg-slate-950/70">
+        <div className="md:hidden h-12 flex items-center absolute top-0 left-0 right-0 bg-slate-950/20 dark:bg-slate-950/70">
+          <SheetTrigger asChild>
             <Button variant="ghost">
               <Menu className="w-8 h-8" />
             </Button>
-          </div>
-        </SheetTrigger>
+          </SheetTrigger>
+        </div>
         <SheetContent side="left" className="w-[90%] dark:bg-slate-800">
           {children}
         </SheetContent>

@@ -23,7 +23,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="ko">
+    <html lang="ko" className="dark">
       <body className={cn(noto_sans.className, "md:flex md:justify-between")}>
         <Sidebar />
         <main className="h-full md:flex-1 dark:bg-slate-900">
