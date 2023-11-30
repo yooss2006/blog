@@ -4,7 +4,6 @@ import { Noto_Sans_KR } from "next/font/google";
 import Sidebar from "@/components/layout/sidebar";
 import { cn } from "@/lib/utils";
 import { Suspense } from "react";
-import LoadingSpinner from "@/components/loading-spinner/loading-spinner";
 
 const noto_sans = Noto_Sans_KR({
   weight: ["100", "400", "500", "800"],
@@ -13,7 +12,7 @@ const noto_sans = Noto_Sans_KR({
   display: "swap",
 });
 export const metadata: Metadata = {
-  title: "임시 블로그",
+  title: "인간 유순상",
   description: "내 임시 블로그야",
 };
 

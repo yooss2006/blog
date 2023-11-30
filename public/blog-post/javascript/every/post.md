@@ -9,7 +9,7 @@
 > 배열을 순회하며 콜백 함수의 결과가 모두 true라면 true를 반환하는 함수
 
 every는 콜백 함수를 인자로 받는다.
-콜백 함수는 (현재 요소, 인덱스, 호출한 배열)를 인자로 받는다.
+콜백 함수는 (현재 요소, 인덱스, 호출한 배열)를 인자로 받는다. [some](/blog/javascript/some)
 
 ```js
 array.every((item, index, array) => {});

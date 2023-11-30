@@ -4,17 +4,15 @@ import remarkGfm from "remark-gfm";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { materialDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 import Image from "next/image";
-import HoverLink from "@/components/link/hover-link";
-import PostPreview from "./post-preview";
 
 type Props = {
   content: string;
 };
 
-export default function MarkdownViewer({ content }: Props) {
+export default function MarkdownPreviewer({ content }: Props) {
   return (
     <Markdown
-      className="prose max-w-none md:prose-lg lg:prose-xl dark:prose-invert"
+      className={"prose text-[10px] max-w-none dark:prose-invert"}
       remarkPlugins={[remarkGfm]}
       components={{
         code(props) {
@@ -37,24 +35,10 @@ export default function MarkdownViewer({ content }: Props) {
         },
         a: ({ href, ...rest }) => {
           if (!href) return null;
-          const isExternalLink = href?.startsWith("http");
-          if (isExternalLink) {
-            return (
-              <a
-                {...rest}
-                href={href}
-                className="text-sky-700 dark:text-sky-400 hover:text-sky-500 hover:dark:text-sky-300"
-              />
-            );
-          }
           return (
-            <HoverLink
-              href={href}
-              linkChildren={rest.children}
-              className="text-sky-700 dark:text-sky-400 no-underline hover:text-sky-500 hover:dark:text-sky-300"
-            >
-              <PostPreview href={href} />
-            </HoverLink>
+            <div className="break-words text-sky-700 dark:text-sky-400">
+              {rest.children}
+            </div>
           );
         },
         p: (props) => {
