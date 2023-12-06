@@ -7,11 +7,18 @@ import useAuthModal from "@/hooks/use-auth-modal";
 import useLikePost from "@/hooks/use-like-post";
 import { useUser } from "@/hooks/use-user";
 import { cn } from "@/lib/utils";
+import { Post } from "@/types/post";
+import { useRouter } from "next/navigation";
 
-export default function LikePost() {
+type Props = {
+  post: Post | null;
+};
+
+export default function LikePost({ post }: Props) {
   const { user } = useUser();
-  const { post, createPost, toggleLike } = useLikePost();
+  const { toggleLike } = useLikePost();
   const { onOpen } = useAuthModal();
+  const router = useRouter();
   const isLiked = post?.like_user.includes(user?.id || "");
 
   const handleButtonClick = async () => {
@@ -19,11 +26,8 @@ export default function LikePost() {
       return onOpen();
     }
     try {
-      if (post) {
-        await toggleLike();
-      } else {
-        await createPost();
-      }
+      await toggleLike(post);
+      router.refresh();
     } catch (error) {
       console.error("Error", error);
     }

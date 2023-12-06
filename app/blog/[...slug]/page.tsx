@@ -5,6 +5,8 @@ import React from "react";
 import PostHeader from "@/features/blog/components/post-header";
 import ContentNavigationButtons from "@/components/layout/content-navigation-buttons";
 import LikePost from "@/components/like-post";
+import { createPost, getPostFromPostPath } from "@/actions/post";
+import CommentsContainer from "@/components/comment";
 
 type Props = {
   params: {
@@ -26,6 +28,10 @@ export async function generateMetadata({
 export default async function BlogPostPage({ params: { slug } }: Props) {
   const { title, description, date, prev, next } = await getHeaderContent(slug);
   const content = await getPostContent(slug);
+  const post = await getPostFromPostPath(slug);
+  if (!post) {
+    await createPost(slug);
+  }
 
   return (
     <section className="w-full h-full relative overflow-y-auto scrollbar-hide text-slate-800 dark:text-white">
@@ -37,9 +43,10 @@ export default async function BlogPostPage({ params: { slug } }: Props) {
       />
       <article className="mx-auto px-10 pb-10 md:w-[800px] md:pb-32 flex flex-col gap-8">
         <MarkdownViewer content={content} />
-        <LikePost />
+        <LikePost post={post} />
+        <ContentNavigationButtons prev={prev} next={next} />
+        <CommentsContainer slug={slug} />
       </article>
-      <ContentNavigationButtons prev={prev} next={next} />
     </section>
   );
 }
