@@ -4,6 +4,7 @@ import { Metadata } from "next";
 import React from "react";
 import PostHeader from "@/features/blog/components/post-header";
 import ContentNavigationButtons from "@/components/layout/content-navigation-buttons";
+import LikePost from "@/components/like-post";
 
 type Props = {
   params: {
@@ -34,8 +35,9 @@ export default async function BlogPostPage({ params: { slug } }: Props) {
         date={date}
         slug={slug}
       />
-      <article className="px-10 pb-10 md:px-44 md:pb-32">
+      <article className="mx-auto px-10 pb-10 md:w-[800px] md:pb-32 flex flex-col gap-8">
         <MarkdownViewer content={content} />
+        <LikePost />
       </article>
       <ContentNavigationButtons prev={prev} next={next} />
     </section>

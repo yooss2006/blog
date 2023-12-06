@@ -8,6 +8,9 @@ const useSocialLogin = () => {
     try {
       await supabase.auth.signInWithOAuth({
         provider: type,
+        options: {
+          redirectTo: `${window.location.href}/`,
+        },
       });
     } catch (error) {
       console.error("Error", error);
