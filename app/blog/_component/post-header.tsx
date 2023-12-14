@@ -1,7 +1,7 @@
 import { ChevronDownCircle } from "lucide-react";
 import Image from "next/image";
 import React from "react";
-import { getThumbnailPath } from "../utils";
+import { getThumbnailPath } from "../../../services/utils";
 
 type Props = {
   title?: string;

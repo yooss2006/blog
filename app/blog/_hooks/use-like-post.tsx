@@ -1,7 +1,7 @@
 import { useSessionContext } from "@supabase/auth-helpers-react";
 import { useCallback } from "react";
 import { useUser } from "@/hooks/use-user";
-import { Post } from "@/types/post";
+import { Post } from "@/app/blog/types";
 
 const useLikePost = () => {
   const { user } = useUser();

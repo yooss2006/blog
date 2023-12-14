@@ -1,3 +1,6 @@
-export default function Home() {
-  return <main>하이</main>;
+import { redirect } from "next/navigation";
+import { NextPage } from "next";
+
+export default function Home(): NextPage {
+  redirect("/blog");
 }

@@ -1,4 +1,4 @@
-import { Comment } from "@/types/post";
+import { Comment } from "@/app/blog/types";
 import { createRouteHandlerClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 import React from "react";

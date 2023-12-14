@@ -2,7 +2,7 @@ import { createRouteHandlerClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 import React from "react";
 import CommentForm from "./comment-form";
-import { Comment } from "@/types/post";
+import { Comment } from "@/app/blog/types";
 import CommentItem from "./comment-item";
 
 type Props = {

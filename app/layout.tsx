@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Noto_Sans_KR } from "next/font/google";
-import Sidebar from "@/components/layout/sidebar";
+import Sidebar from "@/app/blog/_component/layout/sidebar";
 import { cn } from "@/lib/utils";
 import { Suspense } from "react";
 import SupabaseProvider from "@/providers/SupabaseProvider";
@@ -15,8 +15,11 @@ const noto_sans = Noto_Sans_KR({
   display: "swap",
 });
 export const metadata: Metadata = {
-  title: "인간 유순상",
-  description: "내 임시 블로그야",
+  title: {
+    default: "인간 유순상",
+    template: "인간 유순상 | %s",
+  },
+  description: "유순상의 삶, 그리고 그의 생각들",
 };
 
 export default function RootLayout({
@@ -26,13 +29,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ko" className="dark">
-      <body className={cn(noto_sans.className, "md:flex md:justify-between")}>
+      <body className={noto_sans.className}>
         <SupabaseProvider>
           <UserProvider>
-            <Sidebar />
-            <main className="h-full md:flex-1 dark:bg-slate-900">
-              <Suspense>{children}</Suspense>
-            </main>
+            {children}
             <ModalProvider />
           </UserProvider>
         </SupabaseProvider>

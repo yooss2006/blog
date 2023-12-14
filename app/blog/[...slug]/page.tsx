@@ -1,9 +1,9 @@
-import MarkdownViewer from "@/features/blog/components/markdown-viewer";
-import { getHeaderContent, getPostContent } from "@/features/blog/utils";
+import MarkdownViewer from "@/app/blog/_component/markdown-viewer";
+import { getHeaderContent, getPostContent } from "@/services/utils";
 import { Metadata } from "next";
 import React from "react";
-import PostHeader from "@/features/blog/components/post-header";
-import ContentNavigationButtons from "@/components/layout/content-navigation-buttons";
+import PostHeader from "@/app/blog/_component/post-header";
+import ContentNavigationButtons from "@/app/blog/_component/layout/content-navigation-buttons";
 import LikePost from "@/components/like-post";
 import { createPost, getPostFromPostPath } from "@/actions/post";
 import CommentsContainer from "@/components/comment";

@@ -4,10 +4,10 @@ import { Heart } from "lucide-react";
 import React from "react";
 import { Button } from "./ui/button";
 import useAuthModal from "@/hooks/use-auth-modal";
-import useLikePost from "@/hooks/use-like-post";
+import useLikePost from "@/app/blog/_hooks/use-like-post";
 import { useUser } from "@/hooks/use-user";
 import { cn } from "@/lib/utils";
-import { Post } from "@/types/post";
+import { Post } from "@/app/blog/types";
 import { useRouter } from "next/navigation";
 
 type Props = {

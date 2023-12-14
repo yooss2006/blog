@@ -1,5 +1,5 @@
 import React from "react";
-import { getPostContent } from "../utils";
+import { getPostContent } from "../../../services/utils";
 import MarkdownPreviewer from "./markdow-previewer";
 
 type Props = {

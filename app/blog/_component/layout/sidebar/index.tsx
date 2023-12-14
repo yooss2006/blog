@@ -1,6 +1,6 @@
-import BlogCategory from "@/features/blog/components/blog-category";
+import BlogCategory from "@/app/blog/_component/blog-category";
 import React from "react";
-import NavBar from "@/components/layout/sidebar/nav-bar";
+import NavBar from "@/app/blog/_component/layout/sidebar/nav-bar";
 import ToggleSidebarContainer from "./toggle-sidebar-container";
 import User from "@/components/user";
 

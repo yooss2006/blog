@@ -1,7 +1,7 @@
 import React from "react";
 
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import CustomLink from "../custom-link";
+import CustomLink from "../../../../components/custom-link";
 import { cn } from "@/lib/utils";
 
 type Props = {

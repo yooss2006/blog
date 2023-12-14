@@ -1,5 +1,5 @@
 import AcccordionCategory from "@/components/accordion-category";
-import { getBlogStructure } from "@/features/blog/utils";
+import { getBlogStructure } from "@/services/utils";
 import React from "react";
 
 export default async function BlogCategory() {
