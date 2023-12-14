@@ -9,7 +9,7 @@ export default function Sidebar() {
     <ToggleSidebarContainer>
       <User />
       <NavBar />
-      <div className="px-2 flex-1">
+      <div className="px-8 flex-1 text-sm">
         <BlogCategory />
       </div>
     </ToggleSidebarContainer>

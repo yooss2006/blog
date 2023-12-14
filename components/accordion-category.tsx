@@ -41,9 +41,9 @@ export default function AccordionCategory({
               href={`${path}/${categoryName}`}
               className={cn(
                 buttonVariants({ variant: "outline" }),
-                "w-full h-14 px-0 py-4 leading-6 flex justify-start border-none gap-2 text-base font-medium bg-transparent",
+                "w-full h-14 py-4 mb-2 leading-6 flex justify-start border-none gap-2 font-medium bg-transparent hover:bg-inherit dark:hover:bg-slate-700 dark:hover:text-slate-100",
                 pathnameSet[level] === categoryName &&
-                  "bg-slate-200 hover:bg-slate-300 dark:bg-slate-700 dark:hover:bg-slate-600"
+                  "font-semibold bg-yblue-100 hover:bg-yblue-300 dark:bg-slate-700 dark:hover:bg-slate-600"
               )}
               style={{ paddingLeft: dynamicPaddingLeft }}
             >

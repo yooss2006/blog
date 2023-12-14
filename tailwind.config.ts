@@ -21,6 +21,17 @@ const config: Config = {
       colors: {
         white: "#F2F2F2",
         black: "#0F0F0F",
+        yblue: {
+          100: "#468FEA",
+          200: "#3485E8",
+          300: "#2079E6",
+          400: "#186FD8",
+          500: "#1665C5",
+          600: "#145AB1",
+          700: "#11509D",
+          800: "#0F468A",
+          900: "#0D3C76",
+        },
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

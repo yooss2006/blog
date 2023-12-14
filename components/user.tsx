@@ -39,15 +39,19 @@ export default function User() {
             aria-label={user ? "로그아웃" : "로그인"}
             onClick={handleButtonClick}
             variant="ghost"
-            className="w-full"
+            className="group"
           >
             {user ? (
-              <Avatar className="w-10 h-10">
-                <AvatarImage src={user?.user_metadata?.avatar_url} />
-                <AvatarFallback>당신</AvatarFallback>
+              <Avatar className="w-14 h-14 border-2 hover:border-yellow-300 border-yblue-900">
+                <AvatarImage
+                  width={56}
+                  height={56}
+                  src={user?.user_metadata?.avatar_url}
+                />
+                <AvatarFallback>you</AvatarFallback>
               </Avatar>
             ) : (
-              <UserCircle className="w-10 h-10" />
+              <UserCircle className="w-14 h-14 text-yblue-900" />
             )}
           </Button>
         </PopoverTrigger>
